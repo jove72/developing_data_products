@@ -1,0 +1,67 @@
+---
+title       : Regression Results on Longley Economic Regression Data
+author      : jove 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+---
+
+## Longley Economic Regression Data
+
+A macroeconomic data set which provides a well-known example for a highly collinear regression, available at [dataset package] (http://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html).
+
+This data frame includes 7 economical variables, observed yearly from 1947 to 1962.
+- *GNP.deflator* : GNP implicit price deflator 
+- *GNP* : Gross National Product
+- *Unemployed* : number of unemployed
+- *Armed.Forces* : number of people in the armed forces
+- *Population* : 'noninstitutionalized' population more than 14 years of age
+- *Year* : the year (time)
+- *Employed* : number of people employed
+
+-----  
+
+## Regression Methods
+
+Four regression methods are tested in this application. 
+
+1. Ordinary Least Squares Regression Method
+2. Stepwise Linear Regression Method
+3. Principal Component Regression Method
+4. Partial Component Regression Method
+
+-----
+
+## Example of Normal Linear Regression Method
+
+
+```r
+# load data
+data(longley)
+# fit model
+fit <- lm(Employed~., longley)
+# make predictions
+predictions <- predict(fit, longley)
+rmse <- mean((longley$Employed - predictions)^2)
+print(rmse)
+```
+
+```
+## [1] 0.0522765
+```
+
+---
+
+## Online Shiny Application
+
+- Check [my shiny application] (https://jove2015.shinyapps.io/regressiononLongley/) on Rstudio's shiny server
+
+- Choose one regression mode under checkbox group
+
+- Observe the correponding regression performance and accuracy
+
+---
