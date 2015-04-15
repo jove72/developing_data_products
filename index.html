@@ -1,1 +1,178 @@
-default
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Regression Results on Longley Economic Regression Data</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Regression Results on Longley Economic Regression Data">
+  <meta name="author" content="jove">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Regression Results on Longley Economic Regression Data</h1>
+    <h2></h2>
+    <p>jove<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Longley Economic Regression Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>A macroeconomic data set which provides a well-known example for a highly collinear regression, available at <a href="http://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">dataset package</a>.</p>
+
+<p>This data frame includes 7 economical variables, observed yearly from 1947 to 1962.</p>
+
+<ul>
+<li><em>GNP.deflator</em> : GNP implicit price deflator </li>
+<li><em>GNP</em> : Gross National Product</li>
+<li><em>Unemployed</em> : number of unemployed</li>
+<li><em>Armed.Forces</em> : number of people in the armed forces</li>
+<li><em>Population</em> : &#39;noninstitutionalized&#39; population more than 14 years of age</li>
+<li><em>Year</em> : the year (time)</li>
+<li><em>Employed</em> : number of people employed</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Regression Methods</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Four regression methods are tested in this application. </p>
+
+<ol>
+<li>Ordinary Least Squares Regression Method</li>
+<li>Stepwise Linear Regression Method</li>
+<li>Principal Component Regression Method</li>
+<li>Partial Component Regression Method</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Example of Normal Linear Regression Method</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"># load data
+data(longley)
+# fit model
+fit &lt;- lm(Employed~., longley)
+# make predictions
+predictions &lt;- predict(fit, longley)
+rmse &lt;- mean((longley$Employed - predictions)^2)
+print(rmse)
+</code></pre>
+
+<pre><code>## [1] 0.0522765
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Online Shiny Application</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Check <a href="https://jove2015.shinyapps.io/regressiononLongley/">my shiny application</a> on Rstudio&#39;s shiny server</p></li>
+<li><p>Choose one regression mode under checkbox group</p></li>
+<li><p>Observe the correponding regression performance and accuracy</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Longley Economic Regression Data'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Regression Methods'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Example of Normal Linear Regression Method'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Online Shiny Application'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title=''>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
